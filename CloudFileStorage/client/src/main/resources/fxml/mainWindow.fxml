@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="237.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cloudFileStorage.client.MainController">
+<BorderPane prefHeight="237.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.mainWindow.MainController">
     <stylesheets><URL value="@/CSS/mainWindow.css" /></stylesheets>
 
     <top>
@@ -41,9 +41,9 @@
                     <TableColumn fx:id="clientFileNameColumn" text="Имя файла" />
                     <TableColumn fx:id="clientFileSieColumn" text="Размер" />
                 </columns>
-            <columnResizePolicy>
-               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
             </TableView>
 
             <TableView fx:id="serverTableView" HBox.hgrow="ALWAYS">
@@ -51,9 +51,9 @@
                     <TableColumn fx:id="serverFileNameColumn" text="Имя файла" />
                     <TableColumn fx:id="serverFileSizeColumn" text="Размер" />
                 </columns>
-            <columnResizePolicy>
-               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
             </TableView>
         </HBox>
     </center>

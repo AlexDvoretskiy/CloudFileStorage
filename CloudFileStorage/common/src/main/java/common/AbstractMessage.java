@@ -1,4 +1,4 @@
-package cloudFileStorage.common;
+package common;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package cloudFileStorage.client;
+package client.mainWindow;
 
 import javafx.beans.property.SimpleStringProperty;
 

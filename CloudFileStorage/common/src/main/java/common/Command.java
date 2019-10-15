@@ -1,4 +1,4 @@
-package cloudFileStorage.common;
+package common;
 
 /**
  * Класс перечислений возможных команд для
@@ -8,5 +8,7 @@ package cloudFileStorage.common;
 public enum Command {
     GET_FILE_LIST,
     GET_FILE,
-    DELETE_FILE;
+    DELETE_FILE,
+    AUTHORIZATION,
+    REGISTRATION;
 }

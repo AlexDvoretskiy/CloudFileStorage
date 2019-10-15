@@ -1,8 +1,8 @@
-package cloudFileStorage.client;
+package client.mainWindow;
 
-import cloudFileStorage.client.network.Controllers;
-import cloudFileStorage.client.network.Network;
-import cloudFileStorage.common.Command;
+import client.Controllers;
+import client.network.Network;
+import common.Command;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -52,12 +52,6 @@ public class MainController {
     public void initialize(){
         Controllers.setMainController(this);
 
-        Thread t = new Thread(() -> {
-            Network.getInstance().start();
-        });
-        t.setDaemon(true);
-        t.start();
-
         clientFileList = FXCollections.observableArrayList();
         serverFileList = FXCollections.observableArrayList();
 
@@ -67,6 +61,7 @@ public class MainController {
         serverFileSizeColumn.setCellValueFactory(new PropertyValueFactory<>("fileSize"));
 
         updateClientTableView();
+        serverTableViewUpdateRequest();
     }
 
     /**
@@ -75,7 +70,7 @@ public class MainController {
     public void updateClientTableView() {
         try {
             clientTableView.getItems().clear();
-            List<File> filesList = Files.walk(Paths.get("client_storage")).filter(Files::isRegularFile).map(Path::toFile).collect(Collectors.toList());
+            List<File> filesList = Files.walk(Paths.get("client/client_storage")).filter(Files::isRegularFile).map(Path::toFile).collect(Collectors.toList());
 
             for(File file: filesList){
                 TableLine line = new TableLine(file.getName(), file.length() + " bytes");
@@ -145,7 +140,7 @@ public class MainController {
     public void deleteFileOnClient(){
         try {
             initClientSelectedItem();
-            Files.delete(Paths.get("client_storage/" + clientSelectedLine.getFileName()));
+            Files.delete(Paths.get("client/client_storage/" + clientSelectedLine.getFileName()));
             updateClientTableView();
         } catch (IOException e) {
             e.printStackTrace();

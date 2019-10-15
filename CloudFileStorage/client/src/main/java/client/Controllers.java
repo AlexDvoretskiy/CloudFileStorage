@@ -1,6 +1,7 @@
-package cloudFileStorage.client.network;
+package client;
 
-import cloudFileStorage.client.MainController;
+import client.authWindow.AuthController;
+import client.mainWindow.MainController;
 
 
 /**
@@ -10,6 +11,7 @@ import cloudFileStorage.client.MainController;
 
 public class Controllers {
     private static MainController mainController;
+    private static AuthController authController;
 
     public static MainController getMainController() {
         return mainController;
@@ -17,5 +19,13 @@ public class Controllers {
 
     public static void setMainController(MainController mainController) {
         Controllers.mainController = mainController;
+    }
+
+    public static AuthController getAuthController() {
+        return authController;
+    }
+
+    public static void setAuthController(AuthController authController) {
+        Controllers.authController = authController;
     }
 }

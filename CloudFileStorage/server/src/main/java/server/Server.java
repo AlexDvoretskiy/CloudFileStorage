@@ -1,6 +1,5 @@
-package cloudFileStorage.server;
+package server;
 
-import cloudFileStorage.server.handlers.ServerInboundHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -12,6 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
+import server.handlers.ServerInboundHandler;
 
 public class Server {
     private int port = 8185;

@@ -1,4 +1,6 @@
-package cloudFileStorage.common;
+package common;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.util.HashMap;
 
@@ -7,14 +9,14 @@ import java.util.HashMap;
  * актуальных файлов на сервере
  */
 
-public class ResponseMessage extends AbstractMessage {
+public class ServerFileListMessage extends AbstractMessage {
     private HashMap<String, String> filesMap;
 
-    public ResponseMessage(HashMap<String, String> filesMap) {
+    public ServerFileListMessage(HashMap<String, String> filesMap) {
         this.filesMap = filesMap;
     }
 
-    public ResponseMessage(){
+    public ServerFileListMessage(){
         filesMap = new HashMap<>();
     }
 

@@ -1,4 +1,4 @@
-package cloudFileStorage.common;
+package common;
 
 /**
  * Класс-обертка для отправки комад на сервер
@@ -7,16 +7,23 @@ package cloudFileStorage.common;
 public class CommandMessage extends AbstractMessage {
     private Command command;
     private String filename;
+    private String login;
+    private int password;
 
-    public CommandMessage(Command command){
+    public CommandMessage(String login, Command command){
         this.command = command;
+        this.login = login;
     }
 
-    public CommandMessage(String filename, Command command){
-        if(command == Command.GET_FILE_LIST){
-            throw new RuntimeException("Illegal command argument " + command.name());
-        }
+    public CommandMessage(String login, String filename, Command command){
+        this.command = command;
         this.filename = filename;
+        this.login = login;
+    }
+
+    public CommandMessage(String login, int password, Command command){
+        this.login = login;
+        this.password = password;
         this.command = command;
     }
 
@@ -34,5 +41,13 @@ public class CommandMessage extends AbstractMessage {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public int getPassword() {
+        return password;
     }
 }
